@@ -7,11 +7,18 @@ public class GameMenuController : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject gameOverMenu;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] public InputActionReference pause;
 
 
-    private void Start()
+    private void OnEnable()
     {
+        pause.action.started += GoPause;
         gameManager.gameOver.AddListener(GameOver);
+    }
+
+    public void GoPause(InputAction.CallbackContext context)
+    {
+        TogglePauseMenu();
     }
 
     public void TogglePauseMenu()
@@ -35,5 +42,11 @@ public class GameMenuController : MonoBehaviour
     public void OnGoToMainButtonClicked()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    private void OnDestroy()
+    {
+        pause.action.started -= GoPause;
+        gameManager.gameOver.RemoveListener(GameOver);
     }
 }
