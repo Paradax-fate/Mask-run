@@ -1,14 +1,22 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
 
-    [Header("Movement Settings")]
-    [SerializeField] private float speed = 5f;
+    [Header("Movement")]
+    [SerializeField] private float lateralSpeed = 6f;
+    [SerializeField] private float jumpForce = 8f;
 
-    private Vector2 moveInput;
+    [Header("Ground Check")]
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float groundRadius = 0.2f;
+    [SerializeField] private LayerMask groundLayer;
+
+    private float moveInput;
+    private bool isGrounded;
+    private bool isCrouching;
 
     void Awake()
     {
@@ -17,19 +25,61 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move();
+        CheckGround();
+        MoveLateral();
     }
 
-    void Move()
+    void MoveLateral()
     {
-        Vector3 movement = new Vector3(moveInput.x, 0f, moveInput.y);
-        rb.AddForce(movement * speed, ForceMode.Force);
+        rb.linearVelocity = new Vector3(
+            moveInput * lateralSpeed,
+            rb.linearVelocity.y,
+            0f
+        );
     }
 
-    // ESTE m�todo se conecta desde PlayerInput (Invoke Unity Events)
+    void CheckGround()
+    {
+        isGrounded = Physics.CheckSphere(
+            groundCheck.position,
+            groundRadius,
+            groundLayer
+        );
+    }
+
+    // ───────── INPUT EVENTS ─────────
+
     public void OnMove(InputAction.CallbackContext context)
     {
-        moveInput = context.ReadValue<Vector2>();
-        print("Move Input: " + moveInput);
+        moveInput = context.ReadValue<float>();
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (!context.performed || !isGrounded) return;
+
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, 0f);
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
+
+    public void OnCrouch(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            Crouch();
+        else if (context.canceled)
+            StandUp();
+    }
+
+    void Crouch()
+    {
+        if (isCrouching) return;
+        isCrouching = true;
+        transform.localScale = new Vector3(1f, 0.5f, 1f);
+    }
+
+    void StandUp()
+    {
+        isCrouching = false;
+        transform.localScale = Vector3.one;
     }
 }
