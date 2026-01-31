@@ -1159,6 +1159,7 @@ MonoBehaviour:
   tilePrefabs:
   - {fileID: 3872380840532634327, guid: 115dad84f65f2fc43a089dbb1cac88be, type: 3}
   - {fileID: 3872380840532634327, guid: 74c12254fa53445498bd4d2c0ad779dc, type: 3}
+  - {fileID: 3872380840532634327, guid: d769e83760cfdfc4889c76a2ce9ba5fe, type: 3}
   startTileCount: 3
   tileLength: 40
   moveSpeed: 10
