@@ -6,11 +6,11 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
 
-    private bool isGameOver { get; set; } = false;
+    #region Events 
+    public UnityEvent<bool> gameOver = new UnityEvent<bool>();
+    #endregion
 
-    [Header("UI Settings")]
-    [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private GameObject gameOverPanel;
+    private bool isGameOver { get; set; } = false;
 
     [Header("Tile Settings")]
     [SerializeField] private GameObject[] tilePrefabs;
@@ -89,28 +89,5 @@ public class GameManager : MonoBehaviour
 
         return maxZ;
     }
-
-    // Método para pausar y reanudar el juego
-    public void TogglePauseMenu()
-    {
-        bool paused = pauseMenu.activeSelf;
-        pauseMenu.SetActive(!paused);
-        Time.timeScale = paused ? 1f : 0f;
-    }
-    private void GameOver()
-    {
-        isGameOver = true;
-        gameOverPanel.SetActive(true);
-        Time.timeScale = 0f;
-    }
-    #region Events 
-    public UnityEvent<bool> gameOver = new UnityEvent<bool>();
-    #endregion
-
-    private void MoveScene()
-    {
-        // Movimiento de tiles para simular avance
-    }
-
 
 }
