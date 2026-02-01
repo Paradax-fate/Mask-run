@@ -17,13 +17,16 @@ public class ObstacleController : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Colision con el jugador");
-            
+        if (killerCollider != null) {
+            if (other.CompareTag("Player"))
+            {
+                Debug.Log("Trigger con el jugador");
+                other.GetComponent<PlayerController>().loseGame();
+            }
         }
     }
+    
 
 }

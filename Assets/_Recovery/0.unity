@@ -454,8 +454,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.101333566, y: -0, z: -0, w: 0.9948525}
-  m_LocalPosition: {x: 0, y: 4.08, z: -7.58}
+  m_LocalRotation: {x: 0.10133412, y: 0, z: 0, w: 0.9948525}
+  m_LocalPosition: {x: 0, y: 3.99, z: -7.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1112,8 +1112,8 @@ MonoBehaviour:
   difficultyMultiplier: 1
   currentMask: 0
   bossController: {fileID: 930065415}
-  minMaskTime: 6
-  maxMaskTime: 15
+  minMaskTime: 3
+  maxMaskTime: 6
   camFlipDuration: 0.6
   maskRotationTime: 1
   tilePrefabs:

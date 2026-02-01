@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class BossController : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class BossController : MonoBehaviour
 
     private Vector3 startPosition;
     private int direction = 1; // 1 = derecha, -1 = izquierda
+
+    private Coroutine rotateRoutine;
+    private int currentIndex = 0;
+    private const int maskCount = 4;
+
     void Awake()
     {
         startPosition = transform.position;
@@ -54,5 +60,46 @@ public class BossController : MonoBehaviour
             startPosition.y + yOffset,
             transform.position.z
         );
+
+        
     }
+
+
+    public void RotateToNextMask(float rotationDuration)
+    {
+        int nextIndex = (currentIndex + 1) % maskCount;
+        RotateToIndex(nextIndex, rotationDuration);
+    }
+
+    public void RotateToIndex(int index, float rotationDuration)
+    {
+        if (rotateRoutine != null)
+            StopCoroutine(rotateRoutine);
+
+        float anglePerMask = 360f / maskCount;
+        float targetAngle = index * anglePerMask;
+
+        rotateRoutine = StartCoroutine(
+            RotatePivotSmooth(Quaternion.Euler(0f, targetAngle, 0f), rotationDuration)
+        );
+
+        currentIndex = index;
+    }
+
+    IEnumerator RotatePivotSmooth(Quaternion targetRotation, float rotationDuration)
+    {
+        Quaternion startRotation = maskRotator.localRotation;
+        float t = 0f;
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime / rotationDuration;
+            maskRotator.localRotation = Quaternion.Slerp(startRotation, targetRotation, t);
+            yield return null;
+        }
+
+        maskRotator.localRotation = targetRotation;
+    }
+
+
 }

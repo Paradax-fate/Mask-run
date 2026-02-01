@@ -53,8 +53,12 @@ public class PlayerController : MonoBehaviour
     // ───────── INPUT EVENTS ─────────
 
     public void OnMove(InputAction.CallbackContext context)
-    {
+    {        
         moveInput = context.ReadValue<float>();
+        if (GameManager.Instance.currentMask == GameManager.ActiveMask.InvertInputsMask)
+        {
+            moveInput *= -1f;
+        }
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -93,5 +97,10 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Game Over.");
             gameManager.gameOver.Invoke(true);
         }
+    }
+
+    public void loseGame()
+    {
+        GameManager.Instance.gameOver.Invoke(true);
     }
 }
