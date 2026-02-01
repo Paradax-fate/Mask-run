@@ -55,6 +55,7 @@ public class GameMenuController : MonoBehaviour
 
     public void OnGoToMainButtonClicked()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 
