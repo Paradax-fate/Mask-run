@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
     #endregion
 
     private bool isGameOver { get; set; } = false;
+    public static GameManager Instance;
+
+    [Header("Game Settings")]
+    [SerializeField] public float difficultyMultiplier = 1f;
 
     [Header("Tile Settings")]
     [SerializeField] private GameObject[] tilePrefabs;
@@ -23,6 +27,13 @@ public class GameManager : MonoBehaviour
 
     private List<GameObject> activeTiles = new List<GameObject>();
 
+    void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     private void Start()
     {
@@ -32,6 +43,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         MoveTiles();
+        difficultyMultiplier += Time.deltaTime * 0.01f;
     }
 
     // ─── Tile Management ───
@@ -75,6 +87,11 @@ public class GameManager : MonoBehaviour
             tile.transform.position.y,
             rightMostZ + tileLength
         );
+        TileObstacleSpawner content = tile.GetComponent<TileObstacleSpawner>();
+        if (content != null)
+        {
+            content.OnRecycle();
+        }
     }
 
     float GetRightMostZ()

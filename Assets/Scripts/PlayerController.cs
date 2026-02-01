@@ -5,6 +5,9 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
 
+    [Header("Principal Game Settings")]
+    [SerializeField] private GameManager gameManager;
+
     [Header("Movement")]
     [SerializeField] private float lateralSpeed = 6f;
     [SerializeField] private float jumpForce = 8f;
@@ -81,5 +84,14 @@ public class PlayerController : MonoBehaviour
     {
         isCrouching = false;
         transform.localScale = Vector3.one;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("Game Over.");
+            gameManager.gameOver.Invoke(true);
+        }
     }
 }

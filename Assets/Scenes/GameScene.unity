@@ -146,7 +146,7 @@ Transform:
   m_GameObject: {fileID: 203714987}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.26}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -312,10 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f4ab127efdca4458c00056d33064d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossMaskController
-  moveSpeed: 3
   maskRotator: {fileID: 0}
-  minX: -0.7
-  maxX: 0.7
   floatAmplitude: 1.34
   floatFrequency: 2
 --- !u!1 &280337283
@@ -783,10 +780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f4ab127efdca4458c00056d33064d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossMaskController
-  moveSpeed: 3
   maskRotator: {fileID: 0}
-  minX: -0.7
-  maxX: 0.7
   floatAmplitude: 0.93
   floatFrequency: 2
 --- !u!23 &729897886
@@ -921,7 +915,7 @@ Transform:
   m_GameObject: {fileID: 930065413}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.5, z: 18.93}
+  m_LocalPosition: {x: 0, y: 5.7, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -995,10 +989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f4ab127efdca4458c00056d33064d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossMaskController
-  moveSpeed: 3
   maskRotator: {fileID: 0}
-  minX: -0.7
-  maxX: 0.7
   floatAmplitude: 0.5
   floatFrequency: 2
 --- !u!1 &1177138029
@@ -1118,13 +1109,14 @@ MonoBehaviour:
   gameOver:
     m_PersistentCalls:
       m_Calls: []
+  difficultyMultiplier: 1
   tilePrefabs:
   - {fileID: 3872380840532634327, guid: 115dad84f65f2fc43a089dbb1cac88be, type: 3}
-  - {fileID: 3872380840532634327, guid: 74c12254fa53445498bd4d2c0ad779dc, type: 3}
-  - {fileID: 3872380840532634327, guid: cf52cd59ba7d54a428eb8ac54086f4a8, type: 3}
+  - {fileID: 3872380840532634327, guid: 128178e64bf19654dbcd6155114c1dc7, type: 3}
+  - {fileID: 3872380840532634327, guid: 440abab40ddff1c4c9a9fb59b9452337, type: 3}
   startTileCount: 3
   tileLength: 40
-  moveSpeed: 10
+  moveSpeed: 15
   startZ: 0
 --- !u!4 &1301656286
 Transform:
@@ -1303,10 +1295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f4ab127efdca4458c00056d33064d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossMaskController
-  moveSpeed: 3
   maskRotator: {fileID: 0}
-  minX: -0.7
-  maxX: 0.7
   floatAmplitude: 1.16
   floatFrequency: 2
 --- !u!1 &1404120589
@@ -1369,7 +1358,7 @@ Transform:
   m_GameObject: {fileID: 1442527505}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.67, z: 0}
+  m_LocalPosition: {x: 0, y: 0.67, z: -0.102}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1423,7 +1412,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 112
+  m_Constraints: 120
   m_CollisionDetection: 1
 --- !u!114 &1442527509
 MonoBehaviour:
@@ -1437,6 +1426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a2a82672132e8419013a090ab2655d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  gameManager: {fileID: 0}
   lateralSpeed: 6
   jumpForce: 7
   groundCheck: {fileID: 1404120590}
@@ -1686,10 +1676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f4ab127efdca4458c00056d33064d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossMaskController
-  moveSpeed: 3
   maskRotator: {fileID: 0}
-  minX: -0.7
-  maxX: 0.7
   floatAmplitude: 1.4
   floatFrequency: 2
 --- !u!23 &1945827781
