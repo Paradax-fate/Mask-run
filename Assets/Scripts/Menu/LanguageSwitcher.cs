@@ -15,14 +15,22 @@ public class LanguageSwitcher : MonoBehaviour
         // Wait for the localization system to initialize
         yield return LocalizationSettings.InitializationOperation;
 
+        string saveLocale = PlayerPrefs.GetString("SelectedLocale");
+
         // Generate list of available Locales
         var options = new List<TMP_Dropdown.OptionData>();
         int selected = 0;
         for (int i = 0; i < LocalizationSettings.AvailableLocales.Locales.Count; ++i)
         {
             var locale = LocalizationSettings.AvailableLocales.Locales[i];
+            if (locale.LocaleName == saveLocale)
+            {
+                LocalizationSettings.SelectedLocale = locale;
+            }
             if (LocalizationSettings.SelectedLocale == locale)
+            {
                 selected = i;
+            } 
             options.Add(new TMP_Dropdown.OptionData(locale.name));
         }
         dropdown.options = options;
@@ -33,6 +41,8 @@ public class LanguageSwitcher : MonoBehaviour
     static void LocaleSelected(int index)
     {
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
+        PlayerPrefs.SetString("SelectedLocale", LocalizationSettings.SelectedLocale.LocaleName);
+        PlayerPrefs.Save();
     }
 }
 
