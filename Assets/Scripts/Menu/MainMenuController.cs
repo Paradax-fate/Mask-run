@@ -28,14 +28,15 @@ public class MainMenuController : MonoBehaviour
 
     public void OnExitbuttonClicked()
     {
-        if (Application.isEditor)
-        {
-            EditorApplication.isPlaying = false;
-        }
-        else
-        {
-            Application.Quit();
-        }
+#if UNITY_EDITOR
+        // Code here runs ONLY in the Unity Editor
+        Debug.Log("Stopping Editor play mode.");
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        // Code here runs ONLY in the built game
+        Debug.Log("Quitting game.");
+        Application.Quit();
+#endif
     }
 
     public void OnCreditsButtonClicked()

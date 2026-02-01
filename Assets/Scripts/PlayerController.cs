@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     void CheckGround()
     {
-        bool wasOnAir = isGrounded;
+        bool wasOnAir = !isGrounded;
         isGrounded = Physics.CheckSphere(
             groundCheck.position,
             groundRadius,
