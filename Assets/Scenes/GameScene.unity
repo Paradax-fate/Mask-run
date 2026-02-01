@@ -1754,6 +1754,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game UI
       objectReference: {fileID: 0}
+    - target: {fileID: 6100187877023771944, guid: 2f45e23f422123a41b7b8de7358bca03, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6565978292026372917, guid: 2f45e23f422123a41b7b8de7358bca03, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1780,11 +1784,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6565978292026372917, guid: 2f45e23f422123a41b7b8de7358bca03, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 1110
       objectReference: {fileID: 0}
     - target: {fileID: 6565978292026372917, guid: 2f45e23f422123a41b7b8de7358bca03, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 624
       objectReference: {fileID: 0}
     - target: {fileID: 6565978292026372917, guid: 2f45e23f422123a41b7b8de7358bca03, type: 3}
       propertyPath: m_LocalPosition.x

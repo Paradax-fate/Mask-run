@@ -27,6 +27,14 @@ MonoBehaviour:
     m_Key: gameUI.resetGame
     m_Metadata:
       m_Items: []
+  - m_Id: 579243725639680
+    m_Key: gameUI.Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 579326672195584
+    m_Key: gameUI.gameOver
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
