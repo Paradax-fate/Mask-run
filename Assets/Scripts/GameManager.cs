@@ -14,6 +14,14 @@ public class GameManager : MonoBehaviour
     }
     #region Events 
     public UnityEvent<bool> gameOver = new UnityEvent<bool>();
+    public UnityEvent jumpPlayer = new UnityEvent();
+    public UnityEvent crouchPlayer = new UnityEvent();
+    public UnityEvent standUpPlayer = new UnityEvent();
+    public UnityEvent landingPlayer = new UnityEvent();
+    public UnityEvent hitPlayer = new UnityEvent();
+    public UnityEvent changeMaskBoss = new UnityEvent();
+    public UnityEvent spellLaunch = new UnityEvent();
+    public UnityEvent bossDeath = new UnityEvent();
     #endregion
 
     private bool isGameOver { get; set; } = false;
@@ -168,6 +176,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
+        changeMaskBoss.Invoke();
     }
 
 
