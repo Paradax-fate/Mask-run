@@ -22,6 +22,7 @@ public class ObstacleController : MonoBehaviour
         if (killerCollider != null) {
             if (other.CompareTag("Player"))
             {
+                GameManager.Instance.hitPlayer.Invoke();
                 Debug.Log("Trigger con el jugador");
                 other.GetComponent<PlayerController>().loseGame();
             }

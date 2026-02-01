@@ -30,6 +30,14 @@ MonoBehaviour:
     m_Localized: Reiniciar
     m_Metadata:
       m_Items: []
+  - m_Id: 579243725639680
+    m_Localized: Pausa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 579326672195584
+    m_Localized: Fin del juego
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

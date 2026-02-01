@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class GameMenuController : MonoBehaviour
 {
@@ -8,12 +9,23 @@ public class GameMenuController : MonoBehaviour
     [SerializeField] private GameObject gameOverMenu;
     [SerializeField] private GameManager gameManager;
     [SerializeField] public InputActionReference pause;
+    [SerializeField] private TMP_Text timeCounter;
+    [SerializeField] private TMP_Text gameOverTimer;
 
+
+    private float timeInGame = 0;
 
     private void OnEnable()
     {
+        timeCounter.text = timeInGame.ToString("F2");
         pause.action.started += GoPause;
         gameManager.gameOver.AddListener(GameOver);
+    }
+
+    private void Update()
+    {
+        timeInGame += Time.deltaTime;
+        timeCounter.text = timeInGame.ToString("F2");
     }
 
     public void GoPause(InputAction.CallbackContext context)
@@ -30,6 +42,8 @@ public class GameMenuController : MonoBehaviour
     private void GameOver(bool isOver)
     {
         gameOverMenu.SetActive(isOver);
+        timeCounter.text = "";
+        gameOverTimer.text = timeInGame.ToString("F2");
         Time.timeScale = 0f;
     }
 
