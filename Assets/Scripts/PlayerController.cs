@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     void CheckGround()
     {
         bool wasOnAir = !isGrounded;
+
         isGrounded = Physics.CheckSphere(
             groundCheck.position,
             groundRadius,
@@ -69,8 +70,9 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
+        Debug.Log("Try to jump: "+ context.performed +"and" + isGrounded);
         if (!context.performed || !isGrounded) return;
-
+        Debug.Log("Jumping");
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, 0f);
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         GameManager.Instance.jumpPlayer.Invoke();
@@ -88,14 +90,14 @@ public class PlayerController : MonoBehaviour
     {
         if (isCrouching) return;
         isCrouching = true;
-        transform.localScale = new Vector3(1f, 0.5f, 1f);
+        //transform.localScale = new Vector3(1f, 0.5f, 1f);
         GameManager.Instance.crouchPlayer.Invoke();
     }
 
     void StandUp()
     {
         isCrouching = false;
-        transform.localScale = Vector3.one;
+        //transform.localScale = Vector3.one;
         GameManager.Instance.standUpPlayer.Invoke();
     }
 
