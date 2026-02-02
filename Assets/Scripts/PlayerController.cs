@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.jumpPlayer.Invoke();
     }
 
+
     public void OnCrouch(InputAction.CallbackContext context)
     {
         if (context.performed)
