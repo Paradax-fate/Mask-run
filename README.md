@@ -18,4 +18,6 @@ Juan Sebatian Quintero; 3D modeler
 
 All super fonts; super rugged  font
 
-Disclaimer the music was AI generated
+https://es.melodyloops.com; music
+
+https://pixabay.com; sounds

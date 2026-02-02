@@ -269,7 +269,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &138969908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3865,7 +3865,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Bryan Tabares; UI design\n\nCristhian Rodr\xEDguez; 3D modeler\n\nJavier
     Hern\xE1ndez A.; Programmer and game design\n\nJeisson Ospinal; Audio programmer\n\nJuan
-    Sebatian Quintero; 3D modeler\n\nAll super fonts; super rugged  font"
+    Sebatian Quintero; 3D modeler\n\nAll super fonts; super rugged  font\n\nes.melodyloops.com;
+    music\n\npixabay.com; sounds"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 65dfcbd6db37ee54e8145f0d920b378e, type: 2}
   m_sharedMaterial: {fileID: -9038180232017589161, guid: 65dfcbd6db37ee54e8145f0d920b378e, type: 2}
@@ -3892,7 +3893,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16.15
+  m_fontSize: 11.8
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4498,7 +4499,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1913676997
 RectTransform:
   m_ObjectHideFlags: 0
